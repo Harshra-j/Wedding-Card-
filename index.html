@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#1a1410" />
+  <title>Aditya & Shraddha — Wedding Invitation</title>
+  <meta name="description" content="Together with their families, we joyfully invite you to celebrate our wedding." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="is-locked">
+
+  <!-- ============ AMBIENT LAYERS ============ -->
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+
+  <!-- ============ AUDIO ============ -->
+  <audio id="bgm" loop preload="none">
+    <!-- Drop your instrumental file in assets/music/ and update the src -->
+    <source src="assets/music/theme.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="audioToggle" class="audio-toggle" aria-label="Toggle music" hidden>
+    <span class="audio-toggle__ring"></span>
+    <i class="fa-solid fa-volume-high"></i>
+  </button>
+
+  <!-- ============ COVER / LANDING ============ -->
+  <section id="cover" class="cover" aria-label="Invitation cover">
+    <div class="cover__glow" aria-hidden="true"></div>
+    <div class="cover__frame">
+      <span class="corner corner--tl" aria-hidden="true"></span>
+      <span class="corner corner--tr" aria-hidden="true"></span>
+      <span class="corner corner--bl" aria-hidden="true"></span>
+      <span class="corner corner--br" aria-hidden="true"></span>
+
+      <p class="cover__eyebrow" data-cover-fade>Together with their families</p>
+      <h1 class="cover__title" data-cover-fade>You're Invited</h1>
+
+      <div class="cover__names" data-cover-fade>
+        <span class="cover__name" data-bride></span>
+        <span class="cover__amp"><i class="fa-solid fa-heart"></i></span>
+        <span class="cover__name" data-groom></span>
+      </div>
+
+      <p class="cover__date" data-cover-fade data-date-pretty></p>
+
+      <button id="openBtn" class="open-btn" data-cover-fade aria-label="Open the invitation">
+        <span class="open-btn__pulse" aria-hidden="true"></span>
+        <span class="open-btn__core">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+        <span class="open-btn__label">Tap to Open</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============ OPENING ANIMATION ============ -->
+  <div id="doors" class="doors" aria-hidden="true">
+    <div class="door door--left"><span class="door__handle"></span></div>
+    <div class="door door--right"><span class="door__handle"></span></div>
+    <div class="doors__seal"><i class="fa-solid fa-heart"></i></div>
+    <div class="doors__flash"></div>
+  </div>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="content" class="content" hidden>
+
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="hero__sky" aria-hidden="true"></div>
+      <div class="hero__arch">
+        <div class="hero__photo" data-aos="zoom-out" data-aos-duration="1600">
+          <div class="hero__photo-fallback" data-couple-photo>
+            <i class="fa-solid fa-camera-retro"></i>
+            <span>assets/images/couple.jpg</span>
+          </div>
+        </div>
+        <div class="hero__veil"></div>
+        <div class="hero__caption">
+          <p class="hero__intro" data-aos="fade-up">We are getting married</p>
+          <div class="hero__names">
+            <span data-bride></span>
+            <i class="fa-solid fa-heart hero__heart"></i>
+            <span data-groom></span>
+          </div>
+          <p class="hero__meta" data-aos="fade-up" data-aos-delay="150">
+            <span data-date-long></span> &middot; <span data-venue-short></span>
+          </p>
+          <a href="#story" class="hero__scroll" aria-label="Scroll down">
+            <span>Scroll</span><i class="fa-solid fa-chevron-down"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown section" id="countdown">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">The wait begins</p>
+        <h2 class="section__title">Counting down to forever</h2>
+      </div>
+      <div class="countdown__grid" data-aos="fade-up" data-aos-delay="120">
+        <div class="count-cell"><span class="count-num" data-cd="days">00</span><span class="count-label">Days</span></div>
+        <div class="count-cell"><span class="count-num" data-cd="hours">00</span><span class="count-label">Hours</span></div>
+        <div class="count-cell"><span class="count-num" data-cd="minutes">00</span><span class="count-label">Minutes</span></div>
+        <div class="count-cell"><span class="count-num" data-cd="seconds">00</span><span class="count-label">Seconds</span></div>
+      </div>
+      <p class="countdown__done" data-cd-done hidden>Today is the day. Welcome to our wedding! 🤍</p>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="story section" id="story">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">How it began</p>
+        <h2 class="section__title">Our Story</h2>
+      </div>
+      <div class="timeline" data-timeline></div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="gallery">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">Moments</p>
+        <h2 class="section__title">Us, Together</h2>
+      </div>
+      <div class="gallery__grid" data-gallery></div>
+    </section>
+
+    <!-- EVENTS -->
+    <section class="events section" id="events">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">The celebrations</p>
+        <h2 class="section__title">Wedding Events</h2>
+      </div>
+      <div class="events__grid" data-events></div>
+    </section>
+
+    <!-- VENUE -->
+    <section class="venue section" id="venue">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">Where to find us</p>
+        <h2 class="section__title">The Venue</h2>
+      </div>
+      <div class="venue__card glass" data-aos="fade-up" data-aos-delay="120">
+        <div class="venue__image" data-venue-photo>
+          <i class="fa-solid fa-location-dot"></i>
+          <span>assets/images/venue.jpg</span>
+        </div>
+        <div class="venue__body">
+          <h3 class="venue__name" data-venue-name></h3>
+          <p class="venue__address" data-venue-address></p>
+          <a class="btn btn--gold" data-venue-map target="_blank" rel="noopener">
+            <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY -->
+    <section class="family section" id="family">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">With love from</p>
+        <h2 class="section__title">Our Families</h2>
+      </div>
+      <div class="family__grid">
+        <article class="family__col glass" data-aos="fade-right">
+          <h3 class="family__house" data-bride></h3>
+          <p class="family__role">The Bride's Family</p>
+          <ul class="family__list" data-family="bride"></ul>
+        </article>
+        <div class="family__crest" aria-hidden="true"><i class="fa-solid fa-ring"></i></div>
+        <article class="family__col glass" data-aos="fade-left">
+          <h3 class="family__house" data-groom></h3>
+          <p class="family__role">The Groom's Family</p>
+          <ul class="family__list" data-family="groom"></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="dress section" id="dress">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">A little note on attire</p>
+        <h2 class="section__title">Dress Code</h2>
+      </div>
+      <div class="dress__grid" data-dress></div>
+    </section>
+
+    <!-- TIMELINE OF THE DAY -->
+    <section class="schedule section" id="schedule">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">The flow of the day</p>
+        <h2 class="section__title">Wedding Timeline</h2>
+      </div>
+      <div class="schedule__line" data-schedule></div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp section" id="rsvp">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">Will you be there?</p>
+        <h2 class="section__title">RSVP</h2>
+      </div>
+      <div class="rsvp__card glass" data-aos="fade-up" data-aos-delay="120">
+        <div class="field">
+          <label for="rsvpName">Guest name</label>
+          <input id="rsvpName" type="text" placeholder="Your full name" autocomplete="name" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="rsvpCount">Number of guests</label>
+            <input id="rsvpCount" type="number" min="1" max="20" value="1" />
+          </div>
+          <div class="field">
+            <label for="rsvpPhone">Phone number</label>
+            <input id="rsvpPhone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="rsvpAttend">Attendance</label>
+            <select id="rsvpAttend">
+              <option value="Joyfully accepts">Joyfully accepts</option>
+              <option value="Regretfully declines">Regretfully declines</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="rsvpMeal">Meal preference</label>
+            <select id="rsvpMeal">
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Non-vegetarian">Non-vegetarian</option>
+              <option value="Vegan">Vegan</option>
+              <option value="Jain">Jain</option>
+            </select>
+          </div>
+        </div>
+        <div class="rsvp__actions">
+          <button id="rsvpSubmit" class="btn btn--gold"><i class="fa-solid fa-paper-plane"></i> Submit RSVP</button>
+          <a id="rsvpWhatsapp" class="btn btn--ghost" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp RSVP</a>
+          <a id="rsvpCall" class="btn btn--ghost"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+        <p id="rsvpSuccess" class="rsvp__success" hidden></p>
+      </div>
+    </section>
+
+    <!-- PHOTO BOOTH -->
+    <section class="booth section" id="booth">
+      <div class="booth__inner glass" data-aos="zoom-in">
+        <div class="booth__cam" aria-hidden="true">
+          <i class="fa-solid fa-camera-retro"></i>
+          <span class="booth__flash"></span>
+        </div>
+        <h2 class="section__title">Say cheese!</h2>
+        <p class="booth__copy" data-booth-copy></p>
+        <p class="booth__tag" data-booth-tag></p>
+      </div>
+    </section>
+
+    <!-- WISHES -->
+    <section class="wishes section" id="wishes">
+      <div class="section__head" data-aos="fade-up">
+        <p class="eyebrow">Leave a blessing</p>
+        <h2 class="section__title">Wishes for the Couple</h2>
+      </div>
+      <div class="wishes__compose glass" data-aos="fade-up" data-aos-delay="100">
+        <div class="field">
+          <label for="wishName">Your name</label>
+          <input id="wishName" type="text" placeholder="Who's wishing?" />
+        </div>
+        <div class="field">
+          <label for="wishText">Your message</label>
+          <textarea id="wishText" rows="3" placeholder="Write something from the heart…"></textarea>
+        </div>
+        <button id="wishSubmit" class="btn btn--gold"><i class="fa-solid fa-feather"></i> Send your wish</button>
+      </div>
+      <div class="wishes__wall" data-wishes></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+      <div class="footer__divider" aria-hidden="true"><i class="fa-solid fa-feather-pointed"></i></div>
+      <p class="footer__withlove">With love</p>
+      <div class="footer__names">
+        <span data-bride></span><i class="fa-solid fa-heart"></i><span data-groom></span>
+      </div>
+      <p class="footer__date" data-date-long></p>
+      <p class="footer__thanks">Thank you for being part of our story.</p>
+      <div class="footer__social" data-social></div>
+    </footer>
+  </main>
+
+  <!-- ============ LIBS ============ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
