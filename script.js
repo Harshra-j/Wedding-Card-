@@ -52,11 +52,11 @@ const WEDDING = {
 
   family: {
     bride: [
-      { name: "Mr. & Mrs. Sharma", role: "Parents of the Bride" },
-      { name: "Late Shri R. Sharma", role: "Grandfather" },
+      { name: "Mr. & Mrs. Kumar", role: "Parents of the Bride" },
+      { name: "N", role: "Grandfather" },
     ],
     groom: [
-      { name: "Mr. & Mrs. Kapoor", role: "Parents of the Groom" },
+      { name: "Mr. & Mrs. Mishra", role: "Parents of the Groom" },
       { name: "Smt. K. Kapoor", role: "Grandmother" },
     ],
   },
@@ -79,13 +79,13 @@ const WEDDING = {
   ],
 
   rsvp: {
-    phone: "+919876543210",          // for Call Now + WhatsApp
-    whatsapp: "919876543210",         // country code + number, no +
+    phone: "+918448858418",          // for Call Now + WhatsApp
+    whatsapp: "+918448858418",         // country code + number, no +
   },
 
   photoBooth: {
     copy: "Strike a pose at our floral photo wall and tag your favourite moments. Every smile makes our album complete.",
-    hashtag: "#AdityaWedsShraddha",
+    hashtag: "#HarshWedsDivya",
   },
 
   social: [
