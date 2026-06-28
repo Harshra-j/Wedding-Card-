@@ -4,15 +4,15 @@
    ========================================================= */
 
 const WEDDING = {
-  bride: "Aditya",
-  groom: "Shraddha",
+  bride: "Harsh",
+  groom: "Divya",
   // ^ swap names as you like; "bride"/"groom" labels are just keys.
 
   // Wedding date & time (used for hero, footer & countdown)
-  dateISO: "2026-12-12T19:00:00",      // YYYY-MM-DDTHH:mm:ss (local)
-  datePretty: "12 . 12 . 2026",         // shown on the cover
-  dateLong: "Saturday, 12 December 2026",
-  venueShort: "Grand Palace Hall, Mumbai",
+  dateISO: "2026-11-25T19:00:00",      // YYYY-MM-DDTHH:mm:ss (local)
+  datePretty: "25 . 11 . 2026",         // shown on the cover
+  dateLong: "Wednesday, 25 November 2026",
+  venueShort: "Venue, TBA",
 
   // Background music — drop a file in assets/music/ and point to it here
   music: "assets/music/theme.mp3",
@@ -44,10 +44,10 @@ const WEDDING = {
   ],
 
   venue: {
-    name: "Grand Palace Hall",
-    address: "Juhu Tara Road, Juhu, Mumbai, Maharashtra 400049",
-    photo: "assets/images/venue.jpg",
-    maps: "https://www.google.com/maps/search/?api=1&query=Grand+Palace+Hall+Juhu+Mumbai",
+    name: "Venue To Be Announced",
+  address: "Details coming soon — stay tuned!",
+  photo: "",
+  maps: "#",
   },
 
   family: {
